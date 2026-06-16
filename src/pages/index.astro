@@ -1,7 +1,20 @@
 ---
 import Layout from '../layouts/Layout.astro'
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Vertice Studio",
+  url: "https://vertice.dev",
+  logo: "https://vertice.dev/favicon.png",
+  description: "Agencia de diseño web, branding y marketing digital.",
+  sameAs: [
+    "https://www.instagram.com/verticestudio",
+    "https://www.linkedin.com/company/verticestudio"
+  ]
+};
 ---
-<Layout>
-  <h1 class="text-4xl font-bold text-center mt-10">Welcome to Vertice</h1>
+<Layout title="Vertice - Modern Web Development" description="Agencia de diseño web, branding y marketing digital." schema={schema}>
+  <h1 class="text-4xl font-bold text-center mt-10">Hola mundo</h1>
   <p class="text-center mt-4 text-gray-600">Your one-stop solution for modern web development.</p>
 </Layout>

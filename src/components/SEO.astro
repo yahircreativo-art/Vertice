@@ -1,0 +1,66 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  canonical?: string;
+  image?: string;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  canonical,
+  image,
+  noindex = false,
+} = Astro.props;
+---
+
+<!-- Basic Meta Tags -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<link rel="icon" href="/favicon.ico" />
+
+<title>{title}</title>
+
+<meta
+  name="robots"
+  content={noindex ? "noindex,nofollow" : "index,follow"}
+/>
+
+{description && (
+  <meta name="description" content={description} />
+)}
+
+{canonical && (
+  <link rel="canonical" href={canonical} />
+)}
+
+<!-- Open Graph / Facebook -->
+<meta property="og:title" content={title} />
+<meta property="og:type" content="website" />
+
+{description && (
+  <meta property="og:description" content={description} />
+)}
+
+{image && (
+  <meta property="og:image" content={image} />
+)}
+
+{canonical && (
+  <meta property="og:url" content={canonical} />
+)}
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+
+{description && (
+  <meta name="twitter:description" content={description} />
+)}
+
+{image && (
+  <meta name="twitter:image" content={image} />
+)}
