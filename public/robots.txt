@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yahircreativo-art.github.io/Vertice/sitemap-index.xml
